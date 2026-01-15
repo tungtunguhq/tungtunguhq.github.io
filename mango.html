@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥭 JOURNAL PHONK BRAINROT 🥭</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Comic+Neue:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><text y="45" font-size="50">🥭</text></svg>'), auto;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: #000;
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+        
+        .galaxy {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: megaShake 0.1s infinite;
+        }
+        
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes ultraShake {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-15px, 15px) scale(1.1); }
+            50% { transform: translate(15px, -15px) scale(0.9); }
+            75% { transform: translate(-15px, -15px) scale(1.1); }
+            100% { transform: translate(15px, 15px) scale(0.9); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            animation: flash 0.5s infinite;
+            border-bottom: 5px solid #ff00ff;
+        }
+        
+        h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 4em;
+            text-shadow: 5px 5px 10px #ff00ff, -5px -5px 10px #00ffff;
+            display: inline-block;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: #ffaa00;
+            animation: bounce 1s infinite;
+            margin-top: 10px;
+        }
+        
+        .creators {
+            font-size: 2em;
+            color: #00ff00;
+            text-shadow: 3px 3px 5px #000;
+            margin-top: 20px;
+            animation: flash 0.7s infinite;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .article {
+            background: rgba(255, 0, 255, 0.3);
+            border: 5px dashed #00ffff;
+            padding: 30px;
+            margin: 30px 0;
+            animation: bounce 3s infinite;
+            box-shadow: 0 0 30px #ff00ff;
+        }
+        
+        .article:nth-child(even) {
+            background: rgba(0, 255, 255, 0.3);
+        }
+        
+        .article h2 {
+            font-size: 2.5em;
+            color: #ffff00;
+            text-shadow: 3px 3px 10px #ff0000;
+            animation: flash 0.3s infinite;
+        }
+        
+        .article p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #fff;
+        }
+        
+        .mango {
+            position: fixed;
+            font-size: 3em;
+            animation: megaShake 0.08s infinite, bounce 2s infinite;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .popup {
+            position: fixed;
+            background: #ff00ff;
+            padding: 20px;
+            border: 5px solid #00ffff;
+            font-size: 2em;
+            z-index: 9999;
+            animation: ultraShake 0.08s infinite;
+            box-shadow: 0 0 50px #ff00ff;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px;
+            animation: bounce 0.5s infinite, flash 0.3s infinite, ultraShake 0.1s infinite;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            animation: ultraShake 0.05s infinite;
+        }
+        
+        .video-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 200px;
+            border: 5px solid #ff00ff;
+            animation: bounce 2s infinite;
+            box-shadow: 0 0 30px #00ffff;
+        }
+        
+        @keyframes megaShake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            10% { transform: translate(-8px, 8px) rotate(-2deg); }
+            20% { transform: translate(8px, -8px) rotate(2deg); }
+            30% { transform: translate(-8px, -8px) rotate(-2deg); }
+            40% { transform: translate(8px, 8px) rotate(2deg); }
+            50% { transform: translate(-8px, 8px) rotate(-2deg); }
+            60% { transform: translate(8px, -8px) rotate(2deg); }
+            70% { transform: translate(-8px, -8px) rotate(-2deg); }
+            80% { transform: translate(8px, 8px) rotate(2deg); }
+            90% { transform: translate(-8px, 8px) rotate(-2deg); }
+            100% { transform: translate(8px, -8px) rotate(2deg); }
+        }
+        
+        @keyframes ultraShake {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(-15px, 15px) scale(1.1) rotate(-3deg); }
+            50% { transform: translate(15px, -15px) scale(0.9) rotate(3deg); }
+            75% { transform: translate(-15px, -15px) scale(1.1) rotate(-3deg); }
+            100% { transform: translate(15px, 15px) scale(0.9) rotate(3deg); }
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mouse-trail {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            z-index: 10000;
+            animation: ultraShake 0.05s infinite;
+            font-size: 2em;
+        }
+        
+        .explosion {
+            position: fixed;
+            font-size: 5em;
+            pointer-events: none;
+            z-index: 9999;
+            animation: flash 0.2s infinite, megaShake 0.05s infinite;
+        }
+        
+        .screen-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            pointer-events: none;
+            z-index: 10000;
+            animation: flash 0.1s;
+        }
+        
+        .brainrot-text {
+            position: fixed;
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 3px 3px 10px #00ffff;
+            pointer-events: none;
+            z-index: 9999;
+            animation: ultraShake 0.05s infinite, flash 0.2s infinite;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .trollface {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: ultraShake 0.08s infinite, bounce 1s infinite;
+            filter: hue-rotate(90deg) saturate(3);
+        }
+        
+        .cityboy {
+            position: fixed;
+            font-size: 4em;
+            pointer-events: none;
+            z-index: 9999;
+            animation: ultraShake 0.06s infinite, flash 0.3s infinite;
+            text-shadow: 5px 5px 15px #ff00ff, -5px -5px 15px #00ffff;
+            font-weight: bold;
+        }
+        
+        .toilet {
+            position: fixed;
+            font-size: 3em;
+            pointer-events: none;
+            z-index: 9998;
+            animation: fall 3s linear, ultraShake 0.1s infinite;
+        }
+        
+        @keyframes fall {
+            from {
+                top: -100px;
+                transform: rotate(0deg);
+            }
+            to {
+                top: 100vh;
+                transform: rotate(360deg);
+            }
+        }
+        
+        .color-scheme-1 {
+            background: linear-gradient(45deg, #ff0080, #8000ff) !important;
+        }
+        
+        .color-scheme-2 {
+            background: linear-gradient(45deg, #00ff80, #0080ff) !important;
+        }
+        
+        .color-scheme-3 {
+            background: linear-gradient(45deg, #ff8000, #ffff00) !important;
+        }
+        
+        .color-scheme-4 {
+            background: linear-gradient(45deg, #ff0000, #00ffff) !important;
+        }
+        
+        .color-scheme-5 {
+            background: linear-gradient(45deg, #8000ff, #ff00ff) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="galaxy" id="galaxy"></div>
+    
+    <header>
+        <h1>🥭 LE JOURNAL PHONK BRAINROT 🥭</h1>
+        <div class="subtitle">TUNTUNG SAHUR EDITION</div>
+        <div class="creators">✨ CRÉÉ PAR NOA & DORIAN LES BG ULTIMES ✨</div>
+    </header>
+    
+    <div class="container">
+        <div class="article">
+            <h2>🔥 ALERTE PHONK BRAINROT 🔥</h2>
+            <p>Yo les mangues, bienvenue dans le journal le plus chaotique de l'internet ! On est là avec du contenu qui va te faire vriller le cerveau façon tuntung sahur ! Noa et Dorian ont créé ce chef-d'œuvre de chaos digital pour votre plus grand plaisir (ou pas). Préparez-vous à l'expérience la plus brainrot de votre vie !</p>
+            <button onclick="createChaos()">CLIQUE ICI POUR PLUS DE CHAOS</button>
+        </div>
+        
+        <div class="article">
+            <h2>🥭 SECTION MANGO PHONK 🥭</h2>
+            <p>Le mango phonk c'est pas juste un style, c'est un mode de vie ! Entre les basses qui cognent et les mangues qui volent, on est dans une autre dimension. Tuntung sahur toute la nuit, on dort jamais, on phonk toujours ! Les BG Noa et Dorian vous amènent dans leur univers où tout est possible et rien n'a de sens !</p>
+            <button onclick="spawnMangos()">SPAWN DES MANGUES</button>
+        </div>
+        
+        <div class="article">
+            <h2>💀 ZONE BRAINROT ULTIME 💀</h2>
+            <p>T'es encore là ? Respect ! T'as survécu à ce délire phonk brainrot. Mais attends, c'est pas fini ! On a encore plein de surprises pour toi. Des popups qui apparaissent de nulle part, des mangues qui dansent, et du phonk qui ne s'arrête JAMAIS. Noa et Dorian sont fiers de vous présenter cette expérience inoubliable !</p>
+            <button onclick="alert('🥭 MANGO ALERT 🥭')">NE CLIQUE PAS</button>
+        </div>
+        
+        <div class="article">
+            <h2>🌍 ACTU INTERNATIONALE INDE 🇮🇳</h2>
+            <p>L'Inde continue son développement technologique fou avec la Silicon Valley de Bangalore qui explose ! Le pays devient une puissance mondiale dans l'IT et l'IA. Pendant ce temps, Bollywood continue de produire plus de films que Hollywood. Les festivals colorés comme Holi et Diwali illuminent le pays. La street food indienne conquiert le monde entier avec ses épices de dingue ! Modi mène le pays vers l'avenir avec des projets spatiaux ambitieux !</p>
+        </div>
+        
+        <div class="article">
+            <h2>🌍 ACTU INTERNATIONALE ISRAËL 🇮🇱</h2>
+            <p>Israël reste un hub technologique majeur avec Tel Aviv surnommée la "Startup Nation". Les innovations en cybersécurité et tech médicale continuent d'impressionner le monde. Le pays développe des technologies de pointe dans l'agriculture en désert et le dessalement d'eau. La scène culturelle de Tel Aviv vibre avec ses clubs, plages et vie nocturne intense. Les débats politiques restent animés dans cette démocratie du Moyen-Orient !</p>
+        </div>
+    </div>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/bBwSW1niYPM?autoplay=1&loop=1&playlist=bBwSW1niYPM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    
+    <script>
+        // Créer la galaxie
+        const galaxy = document.getElementById('galaxy');
+        
+        // Créer les étoiles
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            galaxy.appendChild(star);
+        }
+        
+        // Créer des nébuleuses colorées
+        for (let i = 0; i < 10; i++) {
+            const nebula = document.createElement('div');
+            nebula.style.position = 'absolute';
+            nebula.style.width = Math.random() * 300 + 200 + 'px';
+            nebula.style.height = Math.random() * 300 + 200 + 'px';
+            nebula.style.left = Math.random() * 100 + '%';
+            nebula.style.top = Math.random() * 100 + '%';
+            nebula.style.borderRadius = '50%';
+            nebula.style.filter = 'blur(60px)';
+            nebula.style.opacity = '0.3';
+            
+            const colors = ['#ff00ff', '#00ffff', '#ff6b00', '#ffaa00'];
+            nebula.style.background = colors[Math.floor(Math.random() * colors.length)];
+            nebula.style.animation = 'twinkle 4s infinite';
+            
+            galaxy.appendChild(nebula);
+        }
+        
+        const emojis = ['🥭', '🔥', '💀', '⚡', '💥', '🌟', '👹', '🎵'];
+        const brainrotWords = [
+            'SKIBIDI',
+            'RIZZ',
+            'GYATT',
+            'SIGMA',
+            'OHIO',
+            'FANUM TAX',
+            'GRIDDY',
+            'BUSSIN',
+            'NO CAP',
+            'FR FR',
+            'SHEESH',
+            'SLAY',
+            'BASED',
+            'W RIZZ',
+            'L RIZZ',
+            'CAUGHT IN 4K',
+            'MANGO PHONK',
+            'TUNTUNG SAHUR',
+            'BRAINROT'
+        ];
+        let trailCount = 0;
+        let colorScheme = 1;
+        
+        // Traînée de souris ultra chaotique
+        document.addEventListener('mousemove', (e) => {
+            // Traînée d'emojis
+            if (trailCount % 2 === 0) {
+                const trail = document.createElement('div');
+                trail.className = 'mouse-trail';
+                trail.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                trail.style.left = e.pageX + 'px';
+                trail.style.top = e.pageY + 'px';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => trail.remove(), 1000);
+            }
+            
+            // Spawn de brainrot words aléatoires
+            if (Math.random() > 0.97) {
+                const brainrot = document.createElement('div');
+                brainrot.className = 'brainrot-text';
+                brainrot.textContent = brainrotWords[Math.floor(Math.random() * brainrotWords.length)];
+                brainrot.style.left = e.pageX + 'px';
+                brainrot.style.top = e.pageY + 'px';
+                document.body.appendChild(brainrot);
+                
+                setTimeout(() => brainrot.remove(), 1500);
+            }
+            
+            // Explosions aléatoires
+            if (Math.random() > 0.95) {
+                const explosion = document.createElement('div');
+                explosion.className = 'explosion';
+                explosion.textContent = '💥';
+                explosion.style.left = e.pageX + 'px';
+                explosion.style.top = e.pageY + 'px';
+                document.body.appendChild(explosion);
+                
+                setTimeout(() => explosion.remove(), 500);
+            }
+            
+            trailCount++;
+        });
+        
+        // Clics qui créent du chaos
+        document.addEventListener('click', (e) => {
+            // Changer le schéma de couleur
+            colorScheme = (colorScheme % 5) + 1;
+            const articles = document.querySelectorAll('.article');
+            articles.forEach(article => {
+                article.className = `article color-scheme-${colorScheme}`;
+            });
+            
+            // Flash de l'écran
+            const flash = document.createElement('div');
+            flash.className = 'screen-flash';
+            document.body.appendChild(flash);
+            setTimeout(() => flash.remove(), 100);
+            
+            // Spawn d'emojis massifs
+            for (let i = 0; i < 10; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'explosion';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = (e.pageX + Math.random() * 200 - 100) + 'px';
+                emoji.style.top = (e.pageY + Math.random() * 200 - 100) + 'px';
+                document.body.appendChild(emoji);
+                
+                setTimeout(() => emoji.remove(), 1000);
+            }
+        });
+        
+        // Spawn des mangues aléatoires
+        function spawnMangos() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const mango = document.createElement('div');
+                    mango.className = 'mango';
+                    mango.textContent = '🥭';
+                    mango.style.left = Math.random() * window.innerWidth + 'px';
+                    mango.style.top = Math.random() * window.innerHeight + 'px';
+                    document.body.appendChild(mango);
+                    
+                    setTimeout(() => mango.remove(), 5000);
+                }, i * 50);
+            }
+        }
+        
+        // Chaos total
+        function createChaos() {
+            spawnMangos();
+            
+            // Spawn massif d'explosions
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const explosion = document.createElement('div');
+                    explosion.className = 'explosion';
+                    explosion.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    explosion.style.left = Math.random() * window.innerWidth + 'px';
+                    explosion.style.top = Math.random() * window.innerHeight + 'px';
+                    document.body.appendChild(explosion);
+                    
+                    setTimeout(() => explosion.remove(), 2000);
+                }, i * 50);
+            }
+            
+            // Flash strobe
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const flash = document.createElement('div');
+                    flash.className = 'screen-flash';
+                    document.body.appendChild(flash);
+                    setTimeout(() => flash.remove(), 100);
+                }, i * 200);
+            }
+        }
+        
+        // Popups aléatoires qui tremblent
+        setInterval(() => {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.textContent = '🥭 MANGO PHONK BRAINROT 🥭';
+            popup.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+            popup.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+            document.body.appendChild(popup);
+            
+            setTimeout(() => popup.remove(), 2000);
+        }, 2500);
+        
+        // Spawn automatique de mangues
+        setInterval(spawnMangos, 8000);
+        
+        // Alert aléatoire
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                alert('🔥 TUNTUNG SAHUR ! 🔥');
+            }
+        }, 12000);
+        
+        // Explosions aléatoires sur l'écran
+        setInterval(() => {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            explosion.style.left = Math.random() * window.innerWidth + 'px';
+            explosion.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(explosion);
+            
+            setTimeout(() => explosion.remove(), 1000);
+        }, 1000);
+        
+        // Spawn de brainrot words automatique
+        setInterval(() => {
+            const brainrot = document.createElement('div');
+            brainrot.className = 'brainrot-text';
+            brainrot.textContent = brainrotWords[Math.floor(Math.random() * brainrotWords.length)];
+            brainrot.style.left = Math.random() * window.innerWidth + 'px';
+            brainrot.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(brainrot);
+            
+            setTimeout(() => brainrot.remove(), 2000);
+        }, 1500);
+        
+        // Spawn de trollfaces MANGO
+        setInterval(() => {
+            const troll = document.createElement('div');
+            troll.className = 'trollface';
+            troll.textContent = '🥭';
+            troll.style.fontSize = '150px';
+            troll.style.left = Math.random() * (window.innerWidth - 150) + 'px';
+            troll.style.top = Math.random() * (window.innerHeight - 150) + 'px';
+            document.body.appendChild(troll);
+            
+            setTimeout(() => troll.remove(), 3000);
+        }, 2000);
+        
+        // Spawn de CITY BOY
+        setInterval(() => {
+            const cityboy = document.createElement('div');
+            cityboy.className = 'cityboy';
+            cityboy.textContent = '🏙️ CITY BOY 🏙️';
+            cityboy.style.left = Math.random() * (window.innerWidth - 300) + 'px';
+            cityboy.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+            document.body.appendChild(cityboy);
+            
+            setTimeout(() => cityboy.remove(), 2500);
+        }, 3000);
+        
+        // Pluie de toilettes SKIBIDI
+        setInterval(() => {
+            const toilet = document.createElement('div');
+            toilet.className = 'toilet';
+            toilet.textContent = '🚽';
+            toilet.style.left = Math.random() * window.innerWidth + 'px';
+            toilet.style.top = '-100px';
+            document.body.appendChild(toilet);
+            
+            setTimeout(() => toilet.remove(), 3000);
+        }, 300);
+    </script>
+</body>
+</html>
